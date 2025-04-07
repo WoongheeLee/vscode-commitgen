@@ -1,4 +1,4 @@
-![logo](logo.png)
+![logo](https://raw.githubusercontent.com/WoongheeLee/vscode-commitgen/main/logo.png)
 
 # CommitGen
 
