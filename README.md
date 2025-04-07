@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/WoongheeLee/vscode-commitgen/main/logo.png)
+![logo](logo.png)
 
 # CommitGen
 
@@ -65,7 +65,7 @@ test(auth): add unit tests for login and token validation
 
 ## License
 
-This project is licensed under the [MIT License](https://raw.githubusercontent.com/WoongheeLee/vscode-commitgen/main/LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ## Contributing
 
