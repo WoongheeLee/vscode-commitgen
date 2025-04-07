@@ -65,7 +65,7 @@ test(auth): add unit tests for login and token validation
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://raw.githubusercontent.com/WoongheeLee/vscode-commitgen/main/LICENSE).
 
 ## Contributing
 
