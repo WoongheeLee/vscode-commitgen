@@ -66,3 +66,8 @@ test(auth): add unit tests for login and token validation
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+## Contributing
+
+Gladly welcoming contributors!  
+Feel free to fork, improve, and send a pull request.

@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Build output
+*.vsix
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# dotenv files (if used)
+.env
+.env.*
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# VS Code specific
+.vscode/
+
+# Test output
+coverage/
+*.log
+
+release.sh
+

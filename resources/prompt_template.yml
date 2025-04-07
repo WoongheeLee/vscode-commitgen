@@ -1,0 +1,10 @@
+commit_format: "<type>(<scope>): <subject>"
+commit_type: |
+  feat: A new feature
+  fix: A bug fix
+  docs: Documentation changes
+  style: Code style changes (formatting, etc)
+  refactor: Code changes that neither fix bugs nor add features
+  perf: Performance improvements
+  test: Test-related changes
+  chore: Changes to the build process or tools

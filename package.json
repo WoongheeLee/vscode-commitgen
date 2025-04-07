@@ -1,0 +1,75 @@
+{
+  "name": "vscode-commitgen",
+  "displayName": "CommitGen",
+  "description": "Generate commit messages using GPT based on your git diff",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": ["*"],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-commitgen.generateCommitMessage",
+        "title": "CommitGen: Generate Commit Message"
+      },
+      {
+        "command": "vscode-commitgen.setApiKey",
+        "title": "CommitGen: Set OpenAI API Key"
+      }
+    ],
+    "configuration": {
+      "title": "CommitGen",
+      "properties": {
+        "commitgen.language": {
+          "type": "string",
+          "default": "english",
+          "enum": [
+            "english",
+            "korean",
+            "japanese",
+            "chinese"
+          ],
+          "description": "Language for generated commit messages"
+        },
+        "commitgen.model": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "enum": [
+            "gpt-4o-mini",
+            "gpt-4o",
+            "gpt-4-turbo",
+            "gpt-3.5-turbo"
+          ],
+          "description": "LLM model to use for generating commit messages"
+        },
+        "commitgen.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key (stored securely)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "js-yaml": "^4.1.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
