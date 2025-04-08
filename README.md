@@ -24,6 +24,48 @@ Generate meaningful Git commit messages with GPT, directly from your staged chan
 
 Alternatively, this extension will be available on the VS Code Marketplace in the future.
 
+### Build from Source (Manual Installation)
+
+If you prefer to build the extension yourself from the source code:
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/WoongheeLee/vscode-commitgen.git
+   cd vscode-commitgen
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Package the extension:
+
+   If you have `vsce` installed globally:
+
+   ```bash
+   vsce package
+   ```
+
+   Or use `npx` without installing globally:
+
+   ```bash
+   npx vsce package
+   ```
+
+   This will generate a `.vsix` file (e.g., `vscode-commitgen-0.1.4.vsix`).
+
+4. Install the extension in VS Code:
+
+   - Open VS Code
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+   - Select "Extensions: Install from VSIX..."
+   - Choose the generated `.vsix` file
+
+You can also use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm) to manage Node.js and npm locally without requiring global or sudo installs.
+
 ## Getting Started
 
 1. Open a Git-enabled project
