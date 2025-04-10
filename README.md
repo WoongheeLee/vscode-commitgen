@@ -26,8 +26,6 @@ You can install CommitGen directly from the [Visual Studio Code Marketplace](htt
 3. Search for `CommitGen`
 4. Click **Install**
 
---- 
-
 ### Download from this repository
 
 1. Download the `.vsix` file from [Releases](https://github.com/WoongheeLee/vscode-commitgen/releases)
