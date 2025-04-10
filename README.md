@@ -4,6 +4,8 @@
 
 Generate meaningful Git commit messages with GPT, directly from your staged changes in VS Code.
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/woongheelee.vscode-commitgen?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=woongheelee.vscode-commitgen)
+
 ## Features
 
 - Generates concise and conventional commit messages from `git diff`
@@ -15,14 +17,25 @@ Generate meaningful Git commit messages with GPT, directly from your staged chan
 
 ## Installation
 
+### Install from VS Code Marketplace (Recommended)
+
+You can install CommitGen directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=woongheelee.vscode-commitgen).
+
+1. Open VS Code
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X)
+3. Search for `CommitGen`
+4. Click **Install**
+
+--- 
+
+### Download from this repository
+
 1. Download the `.vsix` file from [Releases](https://github.com/WoongheeLee/vscode-commitgen/releases)
 2. In VS Code, press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
    ```
    Extensions: Install from VSIX...
    ```
 3. Select the downloaded `.vsix` file
-
-Alternatively, this extension will be available on the VS Code Marketplace in the future.
 
 ### Build from Source (Manual Installation)
 
