@@ -2,12 +2,17 @@
   "name": "vscode-commitgen",
   "displayName": "CommitGen",
   "description": "Generate commit messages using GPT based on your git diff",
+  "publisher": "woongheelee",
+  "author": {
+    "name": "Woonghee Lee",
+    "url": "https://github.com/WoongheeLee"
+  },
+  "icon": "icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/WoongheeLee/vscode-commitgen.git"
   },
-  "version": "0.1.6",
-  "publisher": "woongheelee",
+  "version": "0.1.8",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -74,11 +79,6 @@
     "axios": "^1.8.4",
     "js-yaml": "^4.1.0"
   },
-  "keywords": ["git", "commit", "ai", "openai", "gpt", "llm"],
-  "author": {
-    "name": "Woonghee Lee",
-    "url": "https://github.com/WoongheeLee"
-  },
-  "license": "ISC", 
-  "icon": "icon.png"
+  "keywords": [],
+  "license": "ISC"
 }
