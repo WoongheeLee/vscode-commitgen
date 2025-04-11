@@ -6,7 +6,8 @@
     "type": "git",
     "url": "https://github.com/WoongheeLee/vscode-commitgen.git"
   },
-  "version": "0.1.4",
+  "version": "0.1.6",
+  "publisher": "woongheelee",
   "engines": {
     "vscode": "^1.60.0"
   },
@@ -73,7 +74,11 @@
     "axios": "^1.8.4",
     "js-yaml": "^4.1.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["git", "commit", "ai", "openai", "gpt", "llm"],
+  "author": {
+    "name": "Woonghee Lee",
+    "url": "https://github.com/WoongheeLee"
+  },
+  "license": "ISC", 
+  "icon": "icon.png"
 }
