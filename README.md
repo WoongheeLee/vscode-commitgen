@@ -4,6 +4,8 @@
 
 Generate meaningful Git commit messages with GPT, directly from your staged changes in VS Code.
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/woongheelee.vscode-commitgen?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=woongheelee.vscode-commitgen)
+
 ## Features
 
 - Generates concise and conventional commit messages from `git diff`
@@ -15,6 +17,17 @@ Generate meaningful Git commit messages with GPT, directly from your staged chan
 
 ## Installation
 
+### Install from VS Code Marketplace (Recommended)
+
+You can install CommitGen directly from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=woongheelee.vscode-commitgen).
+
+1. Open VS Code
+2. Go to the Extensions view (Ctrl+Shift+X or Cmd+Shift+X)
+3. Search for `CommitGen`
+4. Click **Install**
+
+### Download from this repository
+
 1. Download the `.vsix` file from [Releases](https://github.com/WoongheeLee/vscode-commitgen/releases)
 2. In VS Code, press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
    ```
@@ -22,7 +35,47 @@ Generate meaningful Git commit messages with GPT, directly from your staged chan
    ```
 3. Select the downloaded `.vsix` file
 
-Alternatively, this extension will be available on the VS Code Marketplace in the future.
+### Build from Source (Manual Installation)
+
+If you prefer to build the extension yourself from the source code:
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/WoongheeLee/vscode-commitgen.git
+   cd vscode-commitgen
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Package the extension:
+
+   If you have `vsce` installed globally:
+
+   ```bash
+   vsce package
+   ```
+
+   Or use `npx` without installing globally:
+
+   ```bash
+   npx vsce package
+   ```
+
+   This will generate a `.vsix` file (e.g., `vscode-commitgen-0.1.4.vsix`).
+
+4. Install the extension in VS Code:
+
+   - Open VS Code
+   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
+   - Select "Extensions: Install from VSIX..."
+   - Choose the generated `.vsix` file
+
+You can also use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm) to manage Node.js and npm locally without requiring global or sudo installs.
 
 ### Build from Source (Manual Installation)
 
