@@ -1,10 +1,25 @@
-
-
 // src/extension.js
 const vscode = require('vscode');
+const { execSync } = require('child_process');
 const { getGitDiff } = require('./commitgen/gitdiff');
 const { generateCommitMessage } = require('./commitgen/generator');
 const { loadApiKey } = require('./commitgen/config');
+
+/**
+ * Gets the recent git commit history
+ * @param {string} rootPath - The root path of the workspace
+ * @param {number} count - Number of commits to retrieve
+ * @returns {string} The git log output
+ */
+async function getGitLog(rootPath, count = 10) {
+  try {
+    const gitLog = execSync(`git -C "${rootPath}" log --oneline -n ${count}`, { encoding: 'utf8' });
+    return gitLog.trim();
+  } catch (error) {
+    console.error('Failed to get git log:', error);
+    return '';
+  }
+}
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -40,6 +55,8 @@ function activate(context) {
       const config = vscode.workspace.getConfiguration('commitgen');
       const language = config.get('language', 'english');
       const model = config.get('model', 'gpt-4o-mini');
+      const includeHistory = config.get('includeCommitHistory', true);
+      const historyCount = config.get('commitHistoryCount', 10);
   
       // Check if API key is set
       try {
@@ -75,18 +92,39 @@ function activate(context) {
           vscode.window.showWarningMessage('CommitGen: No staged changes found. Please run `git add` first.');
           return;
         }
-  
+
+        // Get git commit history if enabled
+        let commitHistory = '';
+        if (includeHistory) {
+          progress.report({ message: "Getting git commit history..." });
+          commitHistory = await getGitLog(rootPath, historyCount);
+        }
+        
         progress.report({ message: `Generating commit message in ${language} using ${model}...` });
+        
+        // Combine git diff with commit history context
+        const contextualDiff = commitHistory ? 
+          `Recent Commit History:\n${commitHistory}\n\nCurrent Changes:\n${gitDiff}` : 
+          gitDiff;
   
-        let message = await generateCommitMessage(gitDiff, model, language);
+        let message = await generateCommitMessage(contextualDiff, model, language);
   
         if (!message) {
           vscode.window.showErrorMessage('CommitGen: Failed to generate commit message. Please try again.');
           return;
         }
+        
+        // Prepare message display with history info if applicable
+        let headerMessage = 'Generated commit message';
+        if (commitHistory) {
+          // Count number of commits in history
+          const commitCount = commitHistory.split('\n').length;
+          headerMessage += ` (Referenced ${commitCount} commits)`;
+        }
+        const displayMessage = `${headerMessage}:\n\n${message}`;
   
         const result = await vscode.window.showInformationMessage(
-          `Generated commit message:\n\n${message}`,
+          displayMessage,
           { modal: true },
           'Commit',
           'Copy to Clipboard',
@@ -116,8 +154,3 @@ module.exports = {
   activate,
   deactivate
 };
-
-
-
-
-

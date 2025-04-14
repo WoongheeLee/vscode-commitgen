@@ -9,6 +9,7 @@ Generate meaningful Git commit messages with GPT, directly from your staged chan
 ## Features
 
 - Generates concise and conventional commit messages from `git diff`
+- Includes recent commit history as context for more relevant commit messages
 - Supports multiple languages: English, Korean, Japanese, Chinese
 - Follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format
 - Supports multiple OpenAI models: `gpt-4o`, `gpt-4-turbo`, `gpt-3.5-turbo`, etc.
@@ -77,48 +78,6 @@ If you prefer to build the extension yourself from the source code:
 
 You can also use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm) to manage Node.js and npm locally without requiring global or sudo installs.
 
-### Build from Source (Manual Installation)
-
-If you prefer to build the extension yourself from the source code:
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/WoongheeLee/vscode-commitgen.git
-   cd vscode-commitgen
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Package the extension:
-
-   If you have `vsce` installed globally:
-
-   ```bash
-   vsce package
-   ```
-
-   Or use `npx` without installing globally:
-
-   ```bash
-   npx vsce package
-   ```
-
-   This will generate a `.vsix` file (e.g., `vscode-commitgen-0.1.4.vsix`).
-
-4. Install the extension in VS Code:
-
-   - Open VS Code
-   - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on macOS)
-   - Select "Extensions: Install from VSIX..."
-   - Choose the generated `.vsix` file
-
-You can also use [fnm](https://github.com/Schniz/fnm) or [nvm](https://github.com/nvm-sh/nvm) to manage Node.js and npm locally without requiring global or sudo installs.
-
 ## Getting Started
 
 1. Open a Git-enabled project
@@ -139,11 +98,13 @@ File → Preferences → Settings → Extensions → CommitGen
 
 You can customize the following options:
 
-| Setting              | Default        | Description                                       |
-|----------------------|----------------|---------------------------------------------------|
-| `commitgen.apiKey`   | `""`           | Your OpenAI API key                               |
-| `commitgen.model`    | `gpt-4o-mini`  | LLM model to use (`gpt-4o`, `gpt-3.5-turbo`, etc.)|
-| `commitgen.language` | `english`      | Language of the commit message                    |
+| Setting                       | Default        | Description                                       |
+|-------------------------------|----------------|---------------------------------------------------|
+| `commitgen.apiKey`            | `""`           | Your OpenAI API key                               |
+| `commitgen.model`             | `gpt-4o-mini`  | LLM model to use (`gpt-4o`, `gpt-3.5-turbo`, etc.)|
+| `commitgen.language`          | `english`      | Language of the commit message                    |
+| `commitgen.includeCommitHistory` | `true`      | Include recent commit history for better context  |
+| `commitgen.commitHistoryCount`   | `10`        | Number of recent commits to include (1-50)        |
 
 ## Example Output
 

@@ -60,8 +60,8 @@ async function getOpenAIApiResult(systemPrompt, userPrompt, model) {
 }
 
 /**
- * Generate a commit message based on git diff
- * @param {string} gitDiffText - The git diff text
+ * Generate a commit message based on git diff and optional commit history
+ * @param {string} gitDiffText - The git diff text, potentially including commit history
  * @param {string} model - The model to use
  * @param {string} language - The language for the commit message
  * @returns {Promise<string>} - The generated commit message
@@ -69,7 +69,24 @@ async function getOpenAIApiResult(systemPrompt, userPrompt, model) {
 async function generateCommitMessage(gitDiffText, model = 'gpt-4o-mini', language = 'english') {
   const { commitFormat, commitType } = await loadPromptTemplate();
   
-  const systemPrompt = `
+  // Determine if the diff contains commit history
+  const hasCommitHistory = gitDiffText.includes('Recent Commit History:');
+  
+  let systemPrompt;
+  if (hasCommitHistory) {
+    systemPrompt = `
+You are an assistant that generates concise and meaningful Git commit messages from git diffs.
+You will be given recent commit history followed by the current changes (git diff output).
+Use the commit history for context, but focus on describing ONLY the current changes.
+Write the commit message in ${language}.
+Follow the Conventional Commit format: ${commitFormat}
+
+Available types:
+${commitType}
+Return only the commit message, no explanation or extra output.
+`;
+  } else {
+    systemPrompt = `
 You are an assistant that generates concise and meaningful Git commit messages from git diffs.
 Write the commit message in ${language}.
 Follow the Conventional Commit format: ${commitFormat}
@@ -78,12 +95,22 @@ Available types:
 ${commitType}
 Return only the commit message, no explanation or extra output.
 `;
+  }
 
-  const userPrompt = `
+  let userPrompt;
+  if (hasCommitHistory) {
+    userPrompt = `
+Generate a commit message based on the following information:
+
+${gitDiffText}
+`;
+  } else {
+    userPrompt = `
 Generate a commit message based on the following staged git diff:
 
 ${gitDiffText}
 `;
+  }
 
   return getOpenAIApiResult(systemPrompt, userPrompt, model);
 }
