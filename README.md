@@ -10,7 +10,7 @@ Generate meaningful Git commit messages with GPT, directly from your staged chan
 
 - Generates concise and conventional commit messages from `git diff`
 - Includes recent commit history as context for more relevant commit messages
-- Supports multiple languages: English, Korean, Japanese, Chinese
+- Supports [multiple languages](https://help.openai.com/en/articles/8357869-how-to-change-your-language-setting-in-chatgpt#h_513834920e), including English, Korean, Japanese, Arabic, Hindi, and more
 - Follows [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format
 - Supports multiple OpenAI models: `gpt-4o`, `gpt-4-turbo`, `gpt-3.5-turbo`, etc.
 - Secure API key storage via VS Code settings
