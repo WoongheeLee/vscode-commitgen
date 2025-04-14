@@ -10,10 +10,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# dotenv files (if used)
-.env
-.env.*
-
 # OS-specific
 .DS_Store
 Thumbs.db
