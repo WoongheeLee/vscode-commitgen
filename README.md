@@ -132,3 +132,7 @@ Feel free to fork, improve, and send a pull request.
 
 - [ ] Automatically close the terminal after committing a message
 - [ ] Support inclusion/exclusion filters for diff targets (e.g., specific file extensions or directories), to reduce unnecessary API calls
+
+## About  
+CommitGen is a lightweight VS Code extension that helps you generate meaningful commit messages using OpenAI.  
+**Made with ❤️ to make your commits cleaner and your workflow faster.**
