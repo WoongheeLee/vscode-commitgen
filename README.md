@@ -130,7 +130,7 @@ Feel free to fork, improve, and send a pull request.
 
 ## TODO
 
-- [ ] Automatically close the terminal after committing a message
+- [x] Automatically close the terminal after committing a message
 - [ ] Support inclusion/exclusion filters for diff targets (e.g., specific file extensions or directories), to reduce unnecessary API calls
 
 ## About  
