@@ -133,6 +133,7 @@ function activate(context) {
         if (result === 'Commit') {
           const terminal = vscode.window.createTerminal('CommitGen');
           terminal.sendText(`git commit -m "${message.replace(/"/g, '\\"')}"`);
+          terminal.sendText('exit');
           terminal.show();
           vscode.window.showInformationMessage('CommitGen: Commit executed.');
         } else if (result === 'Copy to Clipboard') {
